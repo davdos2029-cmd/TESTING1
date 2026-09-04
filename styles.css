@@ -1,0 +1,477 @@
+/* =========================================================
+   NexaCloud — custom styles (complements Tailwind CDN)
+   Theme: deep charcoal, teal accent, gold stars, off-white text
+   ========================================================= */
+
+:root {
+  --ink: #121212;
+  --panel: #1a1a1a;
+  --line: #2a2a2a;
+  --mist: #f5f5f0;
+  --mute: #a3a39a;
+  --cyan: #2dd4bf;
+  --cyan-dim: rgba(45, 212, 191, 0.14);
+  --gold: #c9a227;
+  --radius: 10px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ---------- Sticky header state ---------- */
+#site-header {
+  background: transparent;
+}
+
+#site-header.is-scrolled {
+  background: rgba(18, 18, 18, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- Buttons ---------- */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.35rem;
+  background: var(--cyan);
+  color: #0a1210;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-cta:hover {
+  background: #5eead4;
+  transform: translateY(-1px);
+}
+
+.btn-cta:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.35rem;
+  background: transparent;
+  color: var(--mist);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s var(--ease);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(45, 212, 191, 0.45);
+  background: rgba(45, 212, 191, 0.06);
+  transform: translateY(-1px);
+}
+
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* ---------- Hero atmosphere ---------- */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 80% 55% at 70% 20%, rgba(45, 212, 191, 0.16), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 10% 80%, rgba(201, 162, 39, 0.08), transparent 50%),
+    linear-gradient(180deg, #0e0e0e 0%, var(--ink) 45%, #161616 100%);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(245, 245, 240, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 245, 240, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
+  animation: grid-drift 28s linear infinite;
+}
+
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: 48px 48px; }
+}
+
+/* ---------- Product mockup ---------- */
+.mock-shell {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #141414;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.mock-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #101010;
+  border-bottom: 1px solid var(--line);
+}
+
+.mock-chrome span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #333;
+}
+
+.mock-chrome span:nth-child(1) { background: #5a5a5a; }
+.mock-chrome span:nth-child(2) { background: #3d3d3d; }
+.mock-chrome span:nth-child(3) { background: #2f2f2f; }
+
+.mock-url {
+  margin-left: 12px;
+  flex: 1;
+  font-size: 11px;
+  color: var(--mute);
+  background: #1c1c1c;
+  border-radius: 6px;
+  padding: 4px 10px;
+  max-width: 280px;
+}
+
+.mock-body {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  min-height: 220px;
+}
+
+@media (min-width: 640px) {
+  .mock-body {
+    grid-template-columns: 72px 1fr;
+    min-height: 280px;
+  }
+}
+
+.mock-side {
+  border-right: 1px solid var(--line);
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #121212;
+}
+
+.mock-nav-item {
+  height: 10px;
+  border-radius: 4px;
+  background: #2a2a2a;
+}
+
+.mock-nav-item.active {
+  background: var(--cyan);
+  opacity: 0.85;
+}
+
+.mock-main {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mock-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.mock-search {
+  flex: 1;
+  height: 28px;
+  border-radius: 6px;
+  background: #1c1c1c;
+  border: 1px solid var(--line);
+}
+
+.mock-pill {
+  width: 72px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--cyan-dim);
+  border: 1px solid rgba(45, 212, 191, 0.35);
+}
+
+.mock-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-rows: 1fr 0.7fr;
+  gap: 10px;
+  flex: 1;
+}
+
+.mock-card {
+  border-radius: 8px;
+  background: linear-gradient(145deg, #1e1e1e, #171717);
+  border: 1px solid var(--line);
+  animation: pulse-soft 4.5s ease-in-out infinite;
+}
+
+.mock-card.tall {
+  grid-row: span 2;
+  background:
+    linear-gradient(160deg, rgba(45, 212, 191, 0.12), transparent 55%),
+    linear-gradient(145deg, #1e1e1e, #171717);
+}
+
+.mock-card.wide {
+  grid-column: span 2;
+}
+
+.mock-card:nth-child(2) { animation-delay: 0.4s; }
+.mock-card:nth-child(3) { animation-delay: 0.8s; }
+.mock-card:nth-child(4) { animation-delay: 1.2s; }
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.72; }
+}
+
+/* ---------- Features ---------- */
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+}
+
+/* ---------- Testimonials ---------- */
+.testimonial {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--mist);
+  background: hsl(var(--hue, 170) 35% 22%);
+  border: 1px solid hsl(var(--hue, 170) 30% 32%);
+  flex-shrink: 0;
+}
+
+/* ---------- Pricing ---------- */
+.price-card {
+  position: relative;
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, transform 0.3s var(--ease);
+}
+
+.price-card:hover {
+  border-color: rgba(45, 212, 191, 0.35);
+  transform: translateY(-3px);
+}
+
+.price-card.popular {
+  border-color: rgba(45, 212, 191, 0.55);
+  background: linear-gradient(180deg, rgba(45, 212, 191, 0.08), var(--panel) 40%);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -11px;
+  left: 1.75rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0a1210;
+  background: var(--cyan);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+}
+
+.price-card .btn-cta,
+.price-card .btn-ghost {
+  margin-top: auto;
+}
+
+/* ---------- Contact form ---------- */
+.form-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mist);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--mist);
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #6b6b64;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: rgba(45, 212, 191, 0.55);
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.12);
+}
+
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a3a39a'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.25rem;
+}
+
+.field select option {
+  background: #1a1a1a;
+  color: var(--mist);
+}
+
+.field.is-invalid input,
+.field.is-invalid select,
+.field.is-invalid textarea {
+  border-color: #e05c5c;
+}
+
+.field-error {
+  min-height: 1rem;
+  font-size: 0.75rem;
+  color: #f07171;
+}
+
+.form-success {
+  margin-top: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.35);
+  color: #5eead4;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* ---------- Footer social ---------- */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  color: var(--mute);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.social-icon:hover {
+  color: var(--cyan);
+  border-color: rgba(45, 212, 191, 0.4);
+  background: rgba(45, 212, 191, 0.06);
+}
+
+/* ---------- Scroll reveal (motion 1) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-grid,
+  .mock-card {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .btn-cta:hover,
+  .btn-ghost:hover,
+  .price-card:hover {
+    transform: none;
+  }
+}
+
+/* Utility: screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

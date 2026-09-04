@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NexaCloud — unified cloud workspace for teams that ship. Sync files, automate workflows, and collaborate in real time." />
+  <title>NexaCloud — Cloud Workspace for Modern Teams</title>
+
+  <!-- Fonts: Syne (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#121212",
+            panel: "#1A1A1A",
+            line: "#2A2A2A",
+            mist: "#F5F5F0",
+            mute: "#A3A39A",
+            cyan: "#2DD4BF",
+            gold: "#C9A227",
+          },
+          fontFamily: {
+            display: ["Syne", "sans-serif"],
+            sans: ["DM Sans", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-ink text-mist font-sans antialiased">
+
+  <!-- ========== NAVIGATION ========== -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8" aria-label="Primary">
+      <a href="#home" class="font-display text-xl font-extrabold tracking-tight text-mist md:text-2xl" aria-label="NexaCloud home">
+        Nexa<span class="text-cyan">Cloud</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden items-center gap-8 text-sm font-medium text-mute md:flex">
+        <li><a href="#home" class="nav-link hover:text-mist transition-colors">Home</a></li>
+        <li><a href="#features" class="nav-link hover:text-mist transition-colors">Features</a></li>
+        <li><a href="#pricing" class="nav-link hover:text-mist transition-colors">Pricing</a></li>
+        <li><a href="#contact" class="nav-link hover:text-mist transition-colors">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <a href="#pricing" class="btn-cta hidden sm:inline-flex">Get Started</a>
+        <button type="button" id="menu-toggle" class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line text-mist md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <svg id="icon-close" class="hidden h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden border-t border-line bg-ink/95 backdrop-blur-md md:hidden">
+      <ul class="flex flex-col gap-1 px-5 py-4 text-base font-medium">
+        <li><a href="#home" class="mobile-link block py-2 text-mute hover:text-mist">Home</a></li>
+        <li><a href="#features" class="mobile-link block py-2 text-mute hover:text-mist">Features</a></li>
+        <li><a href="#pricing" class="mobile-link block py-2 text-mute hover:text-mist">Pricing</a></li>
+        <li><a href="#contact" class="mobile-link block py-2 text-mute hover:text-mist">Contact</a></li>
+        <li class="pt-2"><a href="#pricing" class="btn-cta w-full justify-center mobile-link">Get Started</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section id="home" class="hero relative min-h-[100svh] overflow-hidden">
+      <!-- Full-bleed atmospheric layer -->
+      <div class="hero-bg absolute inset-0" aria-hidden="true"></div>
+      <div class="hero-grid absolute inset-0" aria-hidden="true"></div>
+
+      <div class="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 md:justify-center md:px-8 md:pb-24 md:pt-32">
+        <div class="max-w-2xl reveal" data-reveal>
+          <p class="font-display text-4xl font-extrabold tracking-tight text-mist sm:text-5xl md:text-6xl lg:text-7xl">
+            Nexa<span class="text-cyan">Cloud</span>
+          </p>
+          <h1 class="mt-4 font-display text-2xl font-bold leading-tight text-mist sm:text-3xl md:text-4xl">
+            One workspace. Every file, flow, and teammate in sync.
+          </h1>
+          <p class="mt-4 max-w-lg text-base leading-relaxed text-mute md:text-lg">
+            Secure cloud storage, real-time collaboration, and automations that cut busywork — built for teams that move fast.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#pricing" class="btn-cta">Get Started</a>
+            <a href="#features" class="btn-ghost">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Product visual — edge-to-edge mock dashboard -->
+        <div class="hero-mockup mt-12 w-full reveal" data-reveal data-reveal-delay="120" aria-hidden="true">
+          <div class="mock-shell">
+            <div class="mock-chrome">
+              <span></span><span></span><span></span>
+              <div class="mock-url">app.nexacloud.io / workspace</div>
+            </div>
+            <div class="mock-body">
+              <aside class="mock-side">
+                <div class="mock-nav-item active"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+              </aside>
+              <div class="mock-main">
+                <div class="mock-toolbar">
+                  <div class="mock-search"></div>
+                  <div class="mock-pill"></div>
+                </div>
+                <div class="mock-grid">
+                  <div class="mock-card tall"></div>
+                  <div class="mock-card"></div>
+                  <div class="mock-card"></div>
+                  <div class="mock-card wide"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section id="features" class="border-t border-line py-20 md:py-28">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="max-w-xl reveal" data-reveal>
+          <h2 class="font-display text-3xl font-bold tracking-tight md:text-4xl">Built to remove friction</h2>
+          <p class="mt-3 text-mute">Everything your team needs to store, share, and ship — without juggling five tools.</p>
+        </div>
+
+        <div class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+          <!-- Feature 1 -->
+          <article class="reveal" data-reveal>
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-7 w-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+              </svg>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold">Instant Sync</h3>
+            <p class="mt-2 text-sm leading-relaxed text-mute">Files update across devices in seconds. Edit offline — NexaCloud reconciles the moment you’re back online.</p>
+          </article>
+
+          <!-- Feature 2 -->
+          <article class="reveal" data-reveal data-reveal-delay="80">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-7 w-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold">Live Collaboration</h3>
+            <p class="mt-2 text-sm leading-relaxed text-mute">Co-edit docs, leave contextual comments, and see who’s working where — without version chaos.</p>
+          </article>
+
+          <!-- Feature 3 -->
+          <article class="reveal" data-reveal data-reveal-delay="160">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-7 w-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-bold">Enterprise Security</h3>
+            <p class="mt-2 text-sm leading-relaxed text-mute">AES-256 encryption, SSO, and granular permissions so sensitive work stays where it belongs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section id="testimonials" class="border-t border-line bg-panel/40 py-20 md:py-28">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="max-w-xl reveal" data-reveal>
+          <h2 class="font-display text-3xl font-bold tracking-tight md:text-4xl">Teams that switched — and stayed</h2>
+          <p class="mt-3 text-mute">From startups to distributed orgs, NexaCloud becomes the default home for work.</p>
+        </div>
+
+        <div class="mt-14 grid gap-8 md:grid-cols-3">
+          <!-- Testimonial 1 -->
+          <blockquote class="testimonial reveal" data-reveal>
+            <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed text-mist/90">“We cut tool sprawl by half. Sync is rock solid and the permission model finally makes sense for our contractors.”</p>
+            <footer class="mt-6 flex items-center gap-3">
+              <div class="avatar" style="--hue: 170" aria-hidden="true">AR</div>
+              <div>
+                <cite class="not-italic text-sm font-semibold text-mist">Aisha Rahman</cite>
+                <p class="text-xs text-mute">Head of Ops, Lattice Labs</p>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonial 2 -->
+          <blockquote class="testimonial reveal" data-reveal data-reveal-delay="80">
+            <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed text-mist/90">“Automations alone paid for Pro in the first month. Our design handoffs went from messy to invisible.”</p>
+            <footer class="mt-6 flex items-center gap-3">
+              <div class="avatar" style="--hue: 45" aria-hidden="true">JM</div>
+              <div>
+                <cite class="not-italic text-sm font-semibold text-mist">Jordan Miles</cite>
+                <p class="text-xs text-mute">Product Lead, Northframe</p>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonial 3 -->
+          <blockquote class="testimonial reveal" data-reveal data-reveal-delay="160">
+            <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed text-mist/90">“Security review was painless. SSO + audit logs checked every box for our compliance team.”</p>
+            <footer class="mt-6 flex items-center gap-3">
+              <div class="avatar" style="--hue: 200" aria-hidden="true">SK</div>
+              <div>
+                <cite class="not-italic text-sm font-semibold text-mist">Samira Khan</cite>
+                <p class="text-xs text-mute">CTO, Harbor Digital</p>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PRICING ========== -->
+    <section id="pricing" class="border-t border-line py-20 md:py-28">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="max-w-xl reveal" data-reveal>
+          <h2 class="font-display text-3xl font-bold tracking-tight md:text-4xl">Simple pricing that scales</h2>
+          <p class="mt-3 text-mute">Start lean. Upgrade when your team — and storage — outgrow the basics.</p>
+        </div>
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-3">
+          <!-- Basic -->
+          <article class="price-card reveal" data-reveal>
+            <h3 class="font-display text-xl font-bold">Basic</h3>
+            <p class="mt-1 text-sm text-mute">For freelancers &amp; small projects</p>
+            <p class="mt-6 font-display text-4xl font-extrabold tracking-tight">$9<span class="text-base font-medium text-mute">/mo</span></p>
+            <ul class="mt-6 space-y-3 text-sm text-mute">
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> 100 GB storage</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Up to 3 members</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> File sharing &amp; version history</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Email support</li>
+            </ul>
+            <a href="#contact" class="btn-ghost mt-8 w-full justify-center" data-plan="Basic">Choose Basic</a>
+          </article>
+
+          <!-- Pro (popular) -->
+          <article class="price-card popular reveal" data-reveal data-reveal-delay="80">
+            <p class="popular-badge">Most popular</p>
+            <h3 class="font-display text-xl font-bold">Pro</h3>
+            <p class="mt-1 text-sm text-mute">For growing product teams</p>
+            <p class="mt-6 font-display text-4xl font-extrabold tracking-tight">$29<span class="text-base font-medium text-mute">/mo</span></p>
+            <ul class="mt-6 space-y-3 text-sm text-mute">
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> 2 TB storage</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Unlimited members</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Live collaboration &amp; comments</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Workflow automations</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Priority support</li>
+            </ul>
+            <a href="#contact" class="btn-cta mt-8 w-full justify-center" data-plan="Pro">Choose Pro</a>
+          </article>
+
+          <!-- Premium -->
+          <article class="price-card reveal" data-reveal data-reveal-delay="160">
+            <h3 class="font-display text-xl font-bold">Premium</h3>
+            <p class="mt-1 text-sm text-mute">For security-first organizations</p>
+            <p class="mt-6 font-display text-4xl font-extrabold tracking-tight">$79<span class="text-base font-medium text-mute">/mo</span></p>
+            <ul class="mt-6 space-y-3 text-sm text-mute">
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Unlimited storage</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> SSO &amp; advanced admin</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Audit logs &amp; DLP</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Dedicated success manager</li>
+              <li class="flex gap-2"><span class="text-cyan" aria-hidden="true">✓</span> Custom SLA</li>
+            </ul>
+            <a href="#contact" class="btn-ghost mt-8 w-full justify-center" data-plan="Premium">Choose Premium</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="border-t border-line bg-panel/40 py-20 md:py-28">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div class="reveal" data-reveal>
+            <h2 class="font-display text-3xl font-bold tracking-tight md:text-4xl">Let’s get your workspace live</h2>
+            <p class="mt-3 max-w-md text-mute">Tell us what you need. We’ll reply within one business day with a setup plan — no hard sell.</p>
+            <ul class="mt-8 space-y-3 text-sm text-mute">
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-cyan" aria-hidden="true">→</span> Free 14-day Pro trial on request</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-cyan" aria-hidden="true">→</span> Migration help from Drive, Dropbox &amp; Box</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-cyan" aria-hidden="true">→</span> hello@nexacloud.io</li>
+            </ul>
+          </div>
+
+          <form id="lead-form" class="form-shell reveal" data-reveal data-reveal-delay="100" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Your full name" required />
+              <p class="field-error" id="name-error" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required />
+              <p class="field-error" id="email-error" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="service">Plan interest</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a plan</option>
+                <option value="Basic">Basic — $9/mo</option>
+                <option value="Pro">Pro — $29/mo</option>
+                <option value="Premium">Premium — $79/mo</option>
+                <option value="Trial">Free trial only</option>
+              </select>
+              <p class="field-error" id="service-error" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Team size, current tools, or questions…" required></textarea>
+              <p class="field-error" id="message-error" role="alert"></p>
+            </div>
+
+            <button type="submit" class="btn-cta w-full justify-center" id="submit-btn">Send message</button>
+            <p id="form-success" class="form-success hidden" role="status" aria-live="polite">Thanks — your message is in. We’ll be in touch shortly.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="border-t border-line py-12 md:py-16">
+    <div class="mx-auto max-w-6xl px-5 md:px-8">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#home" class="font-display text-xl font-extrabold tracking-tight">Nexa<span class="text-cyan">Cloud</span></a>
+          <p class="mt-3 max-w-xs text-sm text-mute">The cloud workspace for teams that ship — sync, collaborate, and automate in one place.</p>
+        </div>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-mist/70">Quick links</p>
+          <ul class="mt-4 space-y-2 text-sm text-mute">
+            <li><a href="#home" class="hover:text-mist transition-colors">Home</a></li>
+            <li><a href="#features" class="hover:text-mist transition-colors">Features</a></li>
+            <li><a href="#pricing" class="hover:text-mist transition-colors">Pricing</a></li>
+            <li><a href="#contact" class="hover:text-mist transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-mist/70">Legal</p>
+          <ul class="mt-4 space-y-2 text-sm text-mute">
+            <li><a href="#privacy" class="hover:text-mist transition-colors">Privacy Policy</a></li>
+            <li><a href="#terms" class="hover:text-mist transition-colors">Terms of Service</a></li>
+            <li><a href="#cookies" class="hover:text-mist transition-colors">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-mist/70">Social</p>
+          <div class="mt-4 flex gap-3">
+            <a href="https://twitter.com" class="social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.227-8.26L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-col gap-2 border-t border-line pt-8 text-xs text-mute sm:flex-row sm:items-center sm:justify-between">
+        <p>&copy; <span id="year"></span> NexaCloud. All rights reserved.</p>
+        <p>
+          <a href="#privacy" class="hover:text-mist transition-colors">Privacy Policy</a>
+          <span class="mx-2 opacity-40">·</span>
+          <a href="#terms" class="hover:text-mist transition-colors">Terms</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightweight legal anchors (in-page) -->
+  <div id="privacy" class="sr-only" tabindex="-1">Privacy Policy placeholder</div>
+  <div id="terms" class="sr-only" tabindex="-1">Terms of Service placeholder</div>
+  <div id="cookies" class="sr-only" tabindex="-1">Cookie Policy placeholder</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
